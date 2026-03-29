@@ -1,26 +1,23 @@
-// Pin Utara
-int uM = 2, uK = 3, uH = 4;
-// Pin Timur
-int tM = 5, tK = 6, tH = 7;
-// Pin Selatan
-int sM = 8, sK = 9, sH = 10;
-// Pin Barat
-int bM = 11, bK = 12, bH = 13;
+
+int utaraMerah = 2, utaraKuning = 3, utaraHijau = 4;
+int timurMerah = 5, timurKuning = 6, timurHijau = 7;
+int selatanMerah = 8, selatanKuning = 9, selatanHijau = 10;
+int baratMerah = 11, baratKuning = 12, baratHijau = 13;
 void semuaMerah() {
-  digitalWrite(uM, HIGH);
-  digitalWrite(tM, HIGH);
-  digitalWrite(sM, HIGH);
-  digitalWrite(bM, HIGH);
+  digitalWrite(utaraMerah, HIGH);
+  digitalWrite(timurMerah, HIGH);
+  digitalWrite(selatanMerah, HIGH);
+  digitalWrite(baratMerah, HIGH);
 
-  digitalWrite(uH, LOW);
-  digitalWrite(tH, LOW);
-  digitalWrite(sH, LOW);
-  digitalWrite(bH, LOW);
+  digitalWrite(utaraHijau, LOW);
+  digitalWrite(timurHijau, LOW);
+  digitalWrite(selatanHijau, LOW);
+  digitalWrite(baratHijau, LOW);
 
-  digitalWrite(uK, LOW);
-  digitalWrite(tK, LOW);
-  digitalWrite(sK, LOW);
-  digitalWrite(bK, LOW);
+  digitalWrite(utaraKuning, LOW);
+  digitalWrite(timurKuning, LOW);
+  digitalWrite(selatanKuning, LOW);
+  digitalWrite(baratKuning, LOW);
 }
 
 void aktifkanSimpang(int merah, int kuning, int hijau) {
@@ -52,8 +49,8 @@ void setup() {
 }
 
 void loop() {
-  aktifkanSimpang(uM, uK, uH); // Utara
-  aktifkanSimpang(tM, tK, tH); // Timur
-  aktifkanSimpang(sM, sK, sH); // Selatan
-  aktifkanSimpang(bM, bK, bH); // Barat
+  aktifkanSimpang(utaraMerah, utaraKuning, utaraHijau); // Utara
+  aktifkanSimpang(timurMerah, timurKuning, timurHijau); // Timur
+  aktifkanSimpang(selatanMerah, selatanKuning, selatanHijau); // Selatan
+  aktifkanSimpang(baratMerah, baratKuning, baratHijau); // Barat
 }
