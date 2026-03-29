@@ -1,0 +1,59 @@
+// Pin Utara
+int uM = 2, uK = 3, uH = 4;
+// Pin Timur
+int tM = 5, tK = 6, tH = 7;
+// Pin Selatan
+int sM = 8, sK = 9, sH = 10;
+// Pin Barat
+int bM = 11, bK = 12, bH = 13;
+void semuaMerah() {
+  digitalWrite(uM, HIGH);
+  digitalWrite(tM, HIGH);
+  digitalWrite(sM, HIGH);
+  digitalWrite(bM, HIGH);
+
+  digitalWrite(uH, LOW);
+  digitalWrite(tH, LOW);
+  digitalWrite(sH, LOW);
+  digitalWrite(bH, LOW);
+
+  digitalWrite(uK, LOW);
+  digitalWrite(tK, LOW);
+  digitalWrite(sK, LOW);
+  digitalWrite(bK, LOW);
+}
+
+void aktifkanSimpang(int merah, int kuning, int hijau) {
+  semuaMerah();
+
+  // Hijau nyala
+  digitalWrite(merah, LOW);
+  digitalWrite(hijau, HIGH);
+  delay(5000);
+
+  digitalWrite(hijau, LOW);
+
+  // Kuning kedip 3x
+  for (int i = 0; i < 3; i++) {
+    digitalWrite(kuning, HIGH);
+    delay(666);
+    digitalWrite(kuning, LOW);
+    delay(666);
+  }
+
+  digitalWrite(merah, HIGH);
+}
+
+void setup() {
+  for (int i = 2; i <= 13; i++) {
+    pinMode(i, OUTPUT);
+  }
+  semuaMerah();
+}
+
+void loop() {
+  aktifkanSimpang(uM, uK, uH); // Utara
+  aktifkanSimpang(tM, tK, tH); // Timur
+  aktifkanSimpang(sM, sK, sH); // Selatan
+  aktifkanSimpang(bM, bK, bH); // Barat
+}
